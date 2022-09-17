@@ -6,8 +6,8 @@ interface GameBannerProps {
 
 export function GameBanner(props: GameBannerProps) {
   return (
-    <a href="" className="relative rounded-lg overflow-hidden">
-      <img src={props.bannerUrl} alt="game" className="w-[12rem]"/>
+    <a href="" className="relative rounded-lg overflow-hidden keen-slider__slide number-slide1">
+      <img src={props.bannerUrl} alt="game" className="cover w-full"/>
       <div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
         <strong className="font-bold text-white block">{props.title}</strong>
         <span className="font-bold text-zinc-300 text-sm block">{props.adsCount} anúncio(s)</span>

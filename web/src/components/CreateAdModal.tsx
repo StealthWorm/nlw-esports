@@ -30,9 +30,8 @@ export function CreateAdModal() {
     event.preventDefault();
 
     const formData = new FormData(event.target as HTMLFormElement)
-    const data = Object.fromEntries(formData)
-
-    console.log(gameSelected);
+    const data = Object.fromEntries(formData);
+    console.log(data)
 
     if (!data.name) {
       return;
@@ -70,21 +69,20 @@ export function CreateAdModal() {
               // value={gameSelected}
               onValueChange={setGameSelected}
             >
-              <Select.Trigger className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500 inline-flex justify-between">
+              <Select.Trigger className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500 inline-flex justify-between overflow-hidden">
                 <Select.Value placeholder="Selecione o game que deseja jogar" defaultValue="" />
-                <Select.Icon >
+                <Select.Icon>
                   <CaretDown size={18} />
                 </Select.Icon>
               </Select.Trigger>
 
-              <Select.Portal className="bg-zinc-900/70 backdrop-blur-md rounded text-sm text-zinc-100 w-full -mt-1">
-                <Select.Content className="rounded-md shadow-md shadow-black">
+              <Select.Portal className="bg-zinc-900/70 backdrop-blur-md rounded text-sm text-zinc-100 w-full -mt-1 overflow-hidden">
+                <Select.Content className="rounded-md shadow-md shadow-black overflow-hidden">
                   <Select.SelectScrollUpButton className="flex w-full items-center justify-center h-8 text-zinc-100  bg-gradient-to-b from-violet-500/40 to-zinc-500/0">
                     <CaretUp size={20} />
                   </Select.SelectScrollUpButton>
 
-                  <Select.ScrollUpButton />
-                  <Select.Viewport>
+                  <Select.Viewport >
                     {games.map((game) => {
                       return (
                         <Select.Item value={game.id} className="hover:bg-zinc-800 py-2 px-4" key={game.id}>
@@ -95,6 +93,7 @@ export function CreateAdModal() {
                     }
                     )}
                   </Select.Viewport>
+
                   <Select.ScrollDownButton className="flex w-full items-center justify-center h-8 text-zinc-100  bg-gradient-to-t from-violet-500/40 to-zinc-500/0">
                     <CaretDown size={20} />
                   </Select.ScrollDownButton>
@@ -110,7 +109,6 @@ export function CreateAdModal() {
               name="name"
               type="text"
               placeholder="Como te chamam dentro do game?"
-              required
             />
           </div>
 
@@ -188,8 +186,8 @@ export function CreateAdModal() {
             <div className="flex flex-col gap-2 flex-1">
               <label htmlFor="hourStart">Qual o horário do dia?</label>
               <div className="grid grid-cols-2 gap-2">
-                <Input required id="hourStart" name="hourStart" type="time" placeholder="De" />
-                <Input required id="hourEnd" name="hourEnd" type="time" placeholder="Até" />
+                <Input id="hourStart" name="hourStart" type="time" placeholder="De" />
+                <Input id="hourEnd" name="hourEnd" type="time" placeholder="Até" />
               </div>
             </div>
           </div>
