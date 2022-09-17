@@ -17,6 +17,8 @@ import { Loading } from "./src/components/Loading";
 import './src/services/notificationConfigs'
 import { getPushNotificationToken } from './src/services/getPushNotificationToken'
 
+// expo notivication tool, implementar atraves do backend, https://expo.dev/notifications
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
