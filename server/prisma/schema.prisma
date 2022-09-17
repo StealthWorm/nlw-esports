@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+//npx migrate dev
+// create table games
+// npx prisma studio
+// @prisma/client para acessar o banco
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id     String @id @default(uuid())
+  title  String
+  banner String
+
+  ads Ad[]
+}
+
+model Ad {
+  id           String   @id @default(uuid())
+  gameId       String
+  name         String
+  yearsPlaying Int
+  discord      String
+  weekDays     String
+  hourStart    Int
+  hourEnd      Int
+  useVoiceChat Boolean
+  createdAt    DateTime @default(now())
+
+  game Game @relation(fields: [gameId], references: [id])
+}
