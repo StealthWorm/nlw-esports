@@ -12,7 +12,6 @@ import './styles/global.css';
 
 // responsividade
 // zod back
-// react-hook-form front
 // login discord
 
 function App() {
